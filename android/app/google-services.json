@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "857328532805",
+    "project_id": "fcm-demo-aa849",
+    "storage_bucket": "fcm-demo-aa849.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857328532805:android:66f7996b7fbcf1007ed22c",
+        "android_client_info": {
+          "package_name": "com.example.notification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "857328532805-43u9cgpprcom0ik9ggt64lderrpvontq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgFm4SRcNAICRvUQw55c_4aJmOO5tsSPM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "857328532805-43u9cgpprcom0ik9ggt64lderrpvontq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "857328532805-h6a2gvfnmfalh2h2625vrm8fpl1s1kod.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.2020320"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
