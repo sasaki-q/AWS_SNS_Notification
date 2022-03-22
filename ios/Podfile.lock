@@ -1,6 +1,4 @@
 PODS:
-  - awesome_notifications (0.0.3):
-    - Flutter
   - Firebase/CoreOnly (8.11.0):
     - FirebaseCore (= 8.11.0)
   - Firebase/Messaging (8.11.0):
@@ -68,7 +66,6 @@ PODS:
   - PromisesObjC (2.0.0)
 
 DEPENDENCIES:
-  - awesome_notifications (from `.symlinks/plugins/awesome_notifications/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - Flutter (from `Flutter`)
@@ -87,8 +84,6 @@ SPEC REPOS:
     - PromisesObjC
 
 EXTERNAL SOURCES:
-  awesome_notifications:
-    :path: ".symlinks/plugins/awesome_notifications/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   firebase_messaging:
@@ -99,7 +94,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_local_notifications/ios"
 
 SPEC CHECKSUMS:
-  awesome_notifications: 04530aafec8dac4635244ed4b4072f4aea6cc938
   Firebase: 44dd9724c84df18b486639e874f31436eaa9a20c
   firebase_core: 08f6a85f62060111de5e98d6a214810d11365de9
   firebase_messaging: 4a993bb4aa1a83349988d853c637fbb0494dab15
