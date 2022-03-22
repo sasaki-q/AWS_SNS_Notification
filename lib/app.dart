@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:notification/common/global_context.dart';
 import 'package:notification/screens/home_screen.dart';
+import 'package:notification/screens/next_screen.dart';
 
 class App extends StatelessWidget {
   const App({required Key key}) : super(key: key);
@@ -13,6 +14,7 @@ class App extends StatelessWidget {
       navigatorKey: navigatorKey,
       routes: <String, WidgetBuilder>{
         "/": (BuildContext ctx) => const HomeScreen(key: Key("Home")),
+        "/next": (BuildContext ctx) => NextScreen(),
       },
     );
   }

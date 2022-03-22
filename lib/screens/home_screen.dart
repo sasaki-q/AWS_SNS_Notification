@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:notification/common/notification/function.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({required Key key}): super(key: key);
@@ -10,7 +12,16 @@ class HomeScreen extends ConsumerWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: const [],
+        children: [
+          Center(
+            child: ElevatedButton(
+              onPressed: () async {
+                await showMyNotification();
+              },
+              child: const Text("send local notification"),
+            ),
+          )
+        ],
       ),
     );
   }
