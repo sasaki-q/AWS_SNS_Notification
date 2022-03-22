@@ -5,6 +5,24 @@ import 'package:notification/common/notification/plugin.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
+Future<void> initMyNotification() async {
+  await localPlugin.initialize(
+    initSettings,
+    onSelectNotification: pushPage
+  );
+
+  tz.initializeTimeZones();
+
+  NotificationAppLaunchDetails? details = await localPlugin.getNotificationAppLaunchDetails();
+  details ?? print("DEBUG details is null");
+  if(details != null) {
+    print("DEBUG details is not null === $details");
+  }
+  if(details?.payload != null) {
+    print("DEBUG payload is not null === ${details!.payload}");
+  }
+}
+
 Future<void> showMyNotification() async {
   await localPlugin.initialize(
     initSettings,
@@ -20,7 +38,6 @@ Future<void> showMyNotification() async {
 }
 
 Future<void> showMyScheduledNotification() async {
-  tz.initializeTimeZones();
   await localPlugin.initialize(
     initSettings,
     onSelectNotification: pushPage,
