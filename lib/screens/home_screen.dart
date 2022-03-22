@@ -20,7 +20,16 @@ class HomeScreen extends ConsumerWidget {
               },
               child: const Text("send local notification"),
             ),
-          )
+          ),
+          const SizedBox(height: 20),
+          Center(
+            child: ElevatedButton(
+              onPressed: () async {
+                await showMyScheduledNotification();
+              },
+              child: const Text("send scheduled notification"),
+            ),
+          ),
         ],
       ),
     );
