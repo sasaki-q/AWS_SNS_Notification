@@ -12,8 +12,8 @@ const InitializationSettings initSettings = InitializationSettings(
 
 const IOSNotificationDetails iOSPlatformSpecifics =
     IOSNotificationDetails(
-        presentAlert: false,
+        presentAlert: true,
         presentSound: false,
         presentBadge: true,
         badgeNumber: 1000,
-   );
+    );
