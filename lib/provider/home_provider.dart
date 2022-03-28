@@ -9,7 +9,6 @@ class HomeNotifier extends StateNotifier {
   final box = Hive.box("box");
   HomeNotifier() : super("") {
     final String? path = box.get("path");
-    debugPrint("DEBUG sasaki === $path");
     if(path != null) {
       Navigator.of(globalCtx).pushNamed("/$path");
       box.delete("path");

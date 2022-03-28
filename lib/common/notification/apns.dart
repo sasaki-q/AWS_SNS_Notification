@@ -32,7 +32,6 @@ Future<void> initAPNs() async {
 
   Future<void> _onLaunch(RemoteMessage? message) async {
     if(message != null && message.notification != null) {
-      debugPrint("sasaki on launch === ${message.data["path"]}");
       box.put("path", message.data["path"]);
     }
   }
