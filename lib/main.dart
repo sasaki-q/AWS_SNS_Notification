@@ -8,7 +8,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   await Hive.openBox("box");
-  initAPNs();
+  await initAPNs();
   runApp(
     const ProviderScope(
       child: App(

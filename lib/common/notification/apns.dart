@@ -5,7 +5,7 @@ import 'package:notification/common/notification/local.dart';
 
 final PushConnector connector = createPushConnector();
 
-void initAPNs() {
+Future<void> initAPNs() async {
   final Box box = Hive.box("box");
   connector.token.addListener(() {
       debugPrint('DEBUG Device Token === ${connector.token.value}');
@@ -13,19 +13,27 @@ void initAPNs() {
 
   Future<void> _onMessage(RemoteMessage? message) async {
     if(message != null && message.notification != null) {
-      showMyNotification(title: message.notification!.title!);
+      final data = message.data;
+      final contents = message.notification!;
+      showMyNotification(
+        title: contents.title!,
+        message: contents.body!,
+        badgeNum: data["badge"],
+        path: data["path"],
+      );
     }
   }
 
   Future<void> _onResume(RemoteMessage? message) async {
     if(message != null && message.notification != null) {
-      pushPage(message.notification!.title!);
+      pushPage(message.data["path"]);
     }
   }
 
   Future<void> _onLaunch(RemoteMessage? message) async {
     if(message != null && message.notification != null) {
-      box.put("path", message.notification!.title);
+      debugPrint("sasaki on launch === ${message.data["path"]}");
+      box.put("path", message.data["path"]);
     }
   }
 
@@ -41,17 +49,21 @@ void initAPNs() {
 
 /*
   {
-    "default" : "Notification title",
-    "APNS_SANDBOX" : {
-        "aps" : {
-          	"subtitle": "Custom subtitle"
-            "badge" : 1,
-            "alert" : "hello vietnam"
-        },
-        "data" : {
-          "path": "path"
-        }
-    }
-  } 
+    "APNS_SANDBOX":"{\"aps\":{\"alert\":{\"title\":\"My notification\", \"body\":\"next\"},\"badge\":100},\"path\":\"next\",\"badge\":100}"
+  }
+*/
+
+/*
+  {
+    "APNS_SANDBOX":"{
+      \"aps\":{
+        \"alert\":
+          {\"title\":\"My notification\", \"body\":\"next\"}, 
+        \"badge\":100
+      },
+      \"path\":\"next\",
+      \"badge\":100
+    }"
+  }
 */
 

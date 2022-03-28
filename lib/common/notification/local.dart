@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_badger/flutter_app_badger.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:notification/common/global_context.dart';
 import 'package:notification/common/notification/plugin.dart';
 
-// Future<void> initMyLocalNotification() async {
-//   NotificationAppLaunchDetails? details = await localPlugin.getNotificationAppLaunchDetails();
-//   if(details != null && details.payload != null) {
-//     debugPrint("DEBUG local notification init === ${details.payload}");
-//     Navigator.of(globalCtx).pushNamed("${details.payload}");
-//   }
-// }
-
 Future<void> showMyNotification({
   required String title,
+  required String message,
+  required int badgeNum,
+  required String path,
 }) async {
   await localPlugin.initialize(
     initSettings,
@@ -21,14 +17,20 @@ Future<void> showMyNotification({
   localPlugin.show(
     100, 
     title, 
-    "local notification body", 
-    const NotificationDetails(
-      iOS: iOSPlatformSpecifics,
+    message, 
+    NotificationDetails(
+      iOS: IOSNotificationDetails(
+        presentAlert: true,
+        presentSound: true,
+        presentBadge: true,
+        badgeNumber: badgeNum,
+      ),
     ),
-    payload: "/next"
+    payload: path,
   );
 }
 
 void pushPage(String? payload) {
-  Navigator.of(globalCtx).pushNamed(payload!);
+  FlutterAppBadger.removeBadge();
+  Navigator.of(globalCtx).pushNamed("/${payload!}");
 }
